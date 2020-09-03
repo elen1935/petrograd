@@ -79,6 +79,11 @@ function showProduct(myProduct){
         p.classList.add("soldout")
         myCopy.querySelector("article").appendChild(p)
     }
+    // TENGO QUE AÑADIR ALGO DE LOS ALLERGENS AQUI TAMBIEN????
+    /* DOESN'T WORK
+    if (myProduct.allergens){
+        myCopy.querySelector(".allergens").classList.remove("hidden");
+    }*/
 
 
     //1. find the article
@@ -88,10 +93,24 @@ function showProduct(myProduct){
     if (myProduct.vegetarian) {
         article.classList.add("vegetarian")
     }
+    // I ADDED THIS - ALLERGENS FOR EACH PRODUCT
+    /* DOESN'T WORK
+    if (myProduct.allergens) {
+        article.classList.add("allergens")
+    }*/
+
 
     //fill in template
     myCopy.querySelector(".product_name").textContent = myProduct.name;
     /*console.log("I am a ", myProduct.category, "I should go to section#" + myProduct.category)*/
+
+    // I ADDED THIS - PRICE FOR EACH PRODUCT
+    myCopy.querySelector(".product_price").textContent = myProduct.price;
+    // I ADDED THIS - SHORT DESCRIPTION FOR EACH PRODUCT
+    myCopy.querySelector(".short_description").textContent = myProduct.shortdescription;
+    // I ADDED THIS - ALLERGENS FOR EACH PRODUCT
+    /* DOESN'T WORK
+    myCopy.querySelector(".allergens").textContent = myProduct.allergens;*/
 
 
     myCopy.querySelector("button").addEventListener("click", () => {
@@ -111,6 +130,7 @@ function showDetails(data) {
 
   modal.querySelector(".modal-name").textContent = data.name;
   modal.querySelector(".modal-description").textContent = data.longdescription;
+  modal.querySelector(".modal-price").textContent = data.price;
   //...
   modal.classList.remove("hide");
 }

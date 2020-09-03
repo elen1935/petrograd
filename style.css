@@ -157,6 +157,20 @@ nav a:active {
     font-weight: bold;
 }
 
+.allergens {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    color: white;
+    background: yellow;
+    height: 2em;
+    text-align: center;
+    padding: 0.5em;
+    align-content: center;
+    font-weight: bold;
+}
+
 button {
   display: flex;
   justify-content: center;
