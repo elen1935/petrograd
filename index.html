@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petrograd Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Petrograd</h1>
+        <nav></nav>
+    </header>
+
+    <details>
+        <summary>Filters</summary>
+        <button id="veggiefilter">Vegetarian dishes</button>
+    </details>
+
+    <main class="productlist">
+        <template id=productTemplate>
+            <article class=product>
+                <img class=product_image src="images/courses/rodbede-cabanossi-sm.jpg" alt="Cabanossi course picture">
+                <div class="icons">
+                    <img class="vegetarian hidden" src="images/icons/vegetarian.png">
+                </div>
+                <h3 class=product_name>Cabanossi with Beetroot Creme</h3>
+                <p class=description>Cabanossi med rødbedecreme og løg</p>
+                <p class=product_price>49 DKK</p>
+                <p class=product_discount>10% OFF</p>
+                <p class=vegetarian>Vegetarian</p>
+                <section class=allergens>
+                    <h4>ALLERGENS</h4>
+                    <p>Lactose</p>
+                </section>
+                <button>See details</button>
+            </article>
+        </template>
+    </main>
+
+    <div class="modal-background hide">
+        <div class="modal-content">
+            <h3 class="modal-name">NAME</h3>
+            <img src="" alt="" class="modal-image" />
+            <p class="modal-description">LONG DESCRIPTION</p>
+            <h4 class="modal-price">PRICE</h4>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body></html>
