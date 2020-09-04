@@ -70,7 +70,8 @@ function showProduct(myProduct){
         //console.log("NOT DISCOUNT")
         myCopy.querySelector(".product_discount").classList.add("hidden");
 
-    ////DISCOUNT CALCULATION
+    /* FIRST TEST
+        ////DISCOUNT CALCULATION
     if (myProduct.discount) {
         //const productBody = myCopy.querySelector (".productbody");
         myCopy.querySelector(".product_price").style.textDecoration = "line-through";
@@ -85,7 +86,31 @@ function showProduct(myProduct){
         const parentElem = myCopy.querySelector(".productbody");
         parentElem.appendChild(discountedPrice);
     }
-    }
+    }*/
+
+    /*SECOND TEST*/
+    const discountSpanEl = myCopy.querySelector(`.product_discount span`);
+
+    let price = myProduct.price;
+    const newPriceElem = myCopy.querySelector(`.new_price`);
+    const oldPriceElem = myCopy.querySelector(`.old_price`);
+
+    if (myProduct.discount && !myProduct.soldout){
+        discountSpanEl.textContent = myProduct.discount;
+        oldPriceElem.textContent ="Kr." + price + ",-";
+
+        price = price - myProduct.discount / 100 * price;
+
+        } else {
+            oldPriceElem.remove();
+            discountSpanEl.parentElement.remove();
+        }
+
+        newPriceElem.textContent = Math.floor(price)+",-";
+        if (myProduct.discount){
+            newPriceElem.textContent = "New price: " + Math.floor(price)+",-";
+        }
+
 
 
     if (myProduct.vegetarian){
