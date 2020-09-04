@@ -68,8 +68,26 @@ function showProduct(myProduct){
 
     if (!myProduct.discount){
         //console.log("NOT DISCOUNT")
-        myCopy.querySelector(".product_discount").classList.add("hidden")
+        myCopy.querySelector(".product_discount").classList.add("hidden");
+
+    ////DISCOUNT CALCULATION
+    if (myProduct.discount) {
+        //const productBody = myCopy.querySelector (".productbody");
+        myCopy.querySelector(".product_price").style.textDecoration = "line-through";
+        const discountedPrice = document.createElement("h5");
+
+        const price = myProduct.price;
+        const discount = myProduct.discount;
+        const reduction = price * (discount/100);
+
+        discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
+
+        const parentElem = myCopy.querySelector(".productbody");
+        parentElem.appendChild(discountedPrice);
     }
+    }
+
+
     if (myProduct.vegetarian){
         myCopy.querySelector(".vegetarian").classList.remove("hidden");
     }
@@ -105,7 +123,7 @@ function showProduct(myProduct){
     /*console.log("I am a ", myProduct.category, "I should go to section#" + myProduct.category)*/
 
     // I ADDED THIS - PRICE FOR EACH PRODUCT
-    myCopy.querySelector(".product_price").textContent = myProduct.price;
+    myCopy.querySelector(".product_price").textContent = myProduct.price + " DKK";
     // I ADDED THIS - SHORT DESCRIPTION FOR EACH PRODUCT
     myCopy.querySelector(".short_description").textContent = myProduct.shortdescription;
     // I ADDED THIS - ALLERGENS FOR EACH PRODUCT
@@ -157,7 +175,15 @@ modal.addEventListener("click", () => {
 
 
 
-
+/*
+//CALCULATE DISCOUNT
+function calculateDiscount(price, discountPercentage=0){
+    return price - (price * discountPercentage/100)
+}
+//PRIMERA LINEA O LA OTRA?
+calculateDiscount(100, 10)
+const newPrice = calculateDiscount (100, 50)
+*/
 
 
 
