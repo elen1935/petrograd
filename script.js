@@ -66,14 +66,18 @@ function showProduct(myProduct){
     const img = myCopy.querySelector(".product_image");
     img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`)
 
+
     if (!myProduct.discount){
         //console.log("NOT DISCOUNT")
-        myCopy.querySelector(".product_discount").classList.add("hidden");
+        myCopy.querySelector(".product_discount").classList.add("hidden")
+    }
 
-    /* FIRST TEST
+    /* FIRST TEST */
         ////DISCOUNT CALCULATION
     if (myProduct.discount) {
-        //const productBody = myCopy.querySelector (".productbody");
+        myCopy.querySelector(".product_discount").textContent = myProduct.discount + " % DISCOUNT";
+        //const discounPercentage = myProduct.discount;
+
         myCopy.querySelector(".product_price").style.textDecoration = "line-through";
         const discountedPrice = document.createElement("h5");
 
@@ -81,14 +85,16 @@ function showProduct(myProduct){
         const discount = myProduct.discount;
         const reduction = price * (discount/100);
 
+        //discounPercentage.textContent = ``;
         discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
 
-        const parentElem = myCopy.querySelector(".productbody");
+        const parentElem = myCopy.querySelector(".prices");
         parentElem.appendChild(discountedPrice);
     }
-    }*/
 
-    /*SECOND TEST*/
+
+
+    /*SECOND TEST
     const discountSpanEl = myCopy.querySelector(`.product_discount span`);
 
     let price = myProduct.price;
@@ -109,7 +115,7 @@ function showProduct(myProduct){
         newPriceElem.textContent = Math.floor(price)+",-";
         if (myProduct.discount){
             newPriceElem.textContent = "New price: " + Math.floor(price)+",-";
-        }
+        }*/
 
 
 
