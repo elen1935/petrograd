@@ -24,7 +24,7 @@ h1 {
 }
 
 
-h2, h3, h4 {
+h2, h3, h4, h5, h6, .modal-soldout {
     font-size: calc(1rem + 1vw);
 }
 
@@ -87,15 +87,14 @@ h5 {
     font-weight: bold;
 }
 
-.product_discount {
+h6 {
     text-decoration: none;
-    /*padding: 0.5rem 3.8rem 0rem;*/
+    padding: 0rem 3rem 0rem;
     font-family: 'Raleway', sans-serif;
     text-align: left;
     color: #707070;
     font-weight: bold;
 }
-
 
 p {
     text-decoration: none;
@@ -106,12 +105,33 @@ p {
     color: #707070;
 }
 
+.product_discount {
+    text-decoration: none;
+    /*padding: 0.5rem 3.8rem 0rem;*/
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+    color: #707070;
+    font-weight: bold;
+}
+
+
+/* Images and icons styling */
+
 img {
     max-width: 100%;
     height: auto;
     padding: 0rem 2rem;
 }
 
+.icons {
+ position: absolute;
+ /*top: 2.5rem;*/
+ right: 0;
+ display: flex;
+ /*max-width: 40%;*/
+ max-width: 9rem;
+ height: auto;
+}
 
 
 
@@ -224,14 +244,7 @@ button {
   cursor: pointer;
 }
 
-.icons {
- position: absolute;
- /*top: 2.5rem;*/
- right: 0;
- display: flex;
- max-width: 40%;
- height: auto;
-}
+
 
 /*button.active {
   background: hotpink;
@@ -263,10 +276,44 @@ button {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 .modal-content {
   background-color: #fefefe;
   border: 1px solid #7c1f17;
   margin: 1em;
   padding: 2em;
 }
+
+
+.modal-soldout {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    margin: 0;
+    color: white;
+    background: #FF4747;
+    height: 4rem;
+    text-align: center;
+    padding: 1rem 2rem 1rem;
+    align-content: center;
+    font-weight: bold;
+}
+
+.modal-veg {
+ position: absolute;
+ right: 0;
+ display: flex;
+ max-width: 10rem;
+ height: auto;
+}
+
+/*
+.icons {
+ position: absolute;
+ right: 0;
+ display: flex;
+ max-width: 9rem;
+ height: auto;
+}*/
 

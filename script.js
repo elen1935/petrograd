@@ -90,11 +90,11 @@ function showProduct(myProduct){
     }
 
 
-    if (myProduct.alcohol) {
-        myCopy.querySelector(".product_alcohol").textContent = "Alc. " + myProduct.alcohol + "% Vol";
-    }
     if (myProduct.vegetarian){
         myCopy.querySelector(".vegetarian").classList.remove("hidden");
+    }
+    if (myProduct.alcohol) {
+        myCopy.querySelector(".product_alcohol").textContent = "Alc. " + myProduct.alcohol + "% Vol";
     }
     if (myProduct.soldout) {
         const p = document.createElement("p");
@@ -148,12 +148,78 @@ function showProduct(myProduct){
 }
 
 const modal = document.querySelector(".modal-background");
+/*const modalImage = document.querySelector(".modal-background");*/
+/*const modalImage = myCopy.querySelector(".modal-background");*/
+
 //once we have our data, ....
 function showDetails(data) {
 
   modal.querySelector(".modal-name").textContent = data.name;
   modal.querySelector(".modal-description").textContent = data.longdescription;
   modal.querySelector(".modal-price").textContent = data.price;
+
+  const img = modal.querySelector(".modal-image");
+  img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${data.image}-md.jpg`)
+
+
+  if (data.vegetarian){
+        modal.querySelector(".modal-veg").classList.remove("hidden");
+  }
+  if (data.alcohol){
+        modal.querySelector(".modal-alcohol").textContent = "Alc. " + data.alcohol + "% Vol";
+  }
+  if (data.soldout) {
+        const p = document.createElement("p");
+        p.textContent = "Sold Out";
+        p.classList.add("modal-soldout")
+        modal.querySelector("div").appendChild(p)
+    }
+
+  if (data.discount) {
+        modal.querySelector(".modal-discount").textContent = data.discount + " % DISCOUNT";
+
+        modal.querySelector(".modal-price").style.textDecoration = "line-through";
+        const discountedPrice = document.createElement("h6");
+
+        const price = data.price;
+        const discount = data.discount;
+        const reduction = price * (discount/100);
+
+        discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
+
+        const parentElem = modal.querySelector(".modal-price-calc");
+        parentElem.appendChild(discountedPrice);
+    }
+
+
+    /*<div class="modal-price-calc">
+        <p class="modal-discount"></p>
+        <p class="modal-price">49 DKK</p>
+    </div>*/
+
+
+    /* myProduct = data
+       myCopy = modal
+    */
+
+
+    /* COPIADO DE ARRIBA
+    if (myProduct.vegetarian){
+        myCopy.querySelector(".vegetarian").classList.remove("hidden");
+    }
+    */
+
+  /*modal.querySelector(".modal-image");
+  img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
+
+  /*modalImage.querySelector(".modal-image").setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
+
+  /*const modalImage = myCopy.querySelector(".modal-image");
+  modalImage.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
+
+  /*const img = myCopy.querySelector(".modal-image");
+  img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
+
   //...
   modal.classList.remove("hide");
 }
