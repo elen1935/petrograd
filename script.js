@@ -72,11 +72,9 @@ function showProduct(myProduct){
         myCopy.querySelector(".product_discount").classList.add("hidden")
     }
 
-    /* FIRST TEST */
         ////DISCOUNT CALCULATION
     if (myProduct.discount) {
         myCopy.querySelector(".product_discount").textContent = myProduct.discount + " % DISCOUNT";
-        //const discounPercentage = myProduct.discount;
 
         myCopy.querySelector(".product_price").style.textDecoration = "line-through";
         const discountedPrice = document.createElement("h5");
@@ -85,7 +83,6 @@ function showProduct(myProduct){
         const discount = myProduct.discount;
         const reduction = price * (discount/100);
 
-        //discounPercentage.textContent = ``;
         discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
 
         const parentElem = myCopy.querySelector(".prices");
@@ -93,32 +90,9 @@ function showProduct(myProduct){
     }
 
 
-
-    /*SECOND TEST
-    const discountSpanEl = myCopy.querySelector(`.product_discount span`);
-
-    let price = myProduct.price;
-    const newPriceElem = myCopy.querySelector(`.new_price`);
-    const oldPriceElem = myCopy.querySelector(`.old_price`);
-
-    if (myProduct.discount && !myProduct.soldout){
-        discountSpanEl.textContent = myProduct.discount;
-        oldPriceElem.textContent ="Kr." + price + ",-";
-
-        price = price - myProduct.discount / 100 * price;
-
-        } else {
-            oldPriceElem.remove();
-            discountSpanEl.parentElement.remove();
-        }
-
-        newPriceElem.textContent = Math.floor(price)+",-";
-        if (myProduct.discount){
-            newPriceElem.textContent = "New price: " + Math.floor(price)+",-";
-        }*/
-
-
-
+    if (myProduct.alcohol) {
+        myCopy.querySelector(".product_alcohol").textContent = "Alc. " + myProduct.alcohol + "% Vol";
+    }
     if (myProduct.vegetarian){
         myCopy.querySelector(".vegetarian").classList.remove("hidden");
     }
@@ -203,22 +177,5 @@ function veggieFilterClicked(){
 modal.addEventListener("click", () => {
   modal.classList.add("hide");
 });
-
-
-
-/*
-//CALCULATE DISCOUNT
-function calculateDiscount(price, discountPercentage=0){
-    return price - (price * discountPercentage/100)
-}
-//PRIMERA LINEA O LA OTRA?
-calculateDiscount(100, 10)
-const newPrice = calculateDiscount (100, 50)
-*/
-
-
-
-
-
 
 
