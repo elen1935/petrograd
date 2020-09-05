@@ -156,7 +156,7 @@ function showDetails(data) {
 
   modal.querySelector(".modal-name").textContent = data.name;
   modal.querySelector(".modal-description").textContent = data.longdescription;
-  modal.querySelector(".modal-price").textContent = data.price;
+  modal.querySelector(".modal-price").textContent = data.price + " DKK";
 
   const img = modal.querySelector(".modal-image");
   img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${data.image}-md.jpg`)
@@ -168,11 +168,17 @@ function showDetails(data) {
   if (data.alcohol){
         modal.querySelector(".modal-alcohol").textContent = "Alc. " + data.alcohol + "% Vol";
   }
+  if (data.allergens){
+        modal.querySelector(".modal-allergens").textContent = data.allergens;
+  }
+
   if (data.soldout) {
-        const p = document.createElement("p");
+      /* me aparece en todos los productos */
+      modal.querySelector(".modal-soldout").classList.remove("hidden");
+        /*const p = document.createElement("p");
         p.textContent = "Sold Out";
         p.classList.add("modal-soldout")
-        modal.querySelector("div").appendChild(p)
+        modal.querySelector("div").appendChild(p)*/
     }
 
   if (data.discount) {
