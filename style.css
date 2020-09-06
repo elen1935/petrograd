@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway);
 
 html {
-    /*scroll-behavior: smooth;*/
+    scroll-behavior: smooth;
     font-size: 100%;
 }
 
@@ -24,16 +24,19 @@ h1 {
 }
 
 
-h2, h3, h4, h5, h6, {
+h2, h3, h4, h6 {
     font-size: calc(1rem + 1vw);
 }
 
-p, button, .modal-soldout {
+p, .modal-soldout, .modal-price {
     font-size: calc(1rem + 0.5vw);
 }
 
+button, .product_price, h5 {
+    font-size: calc(0.8rem + 0.5vw);
+}
 
-a {
+a, .allergens-title {
     font-size: calc(0.8rem + 0.3vw);
 }
 
@@ -50,7 +53,7 @@ h1 {
 
 h2 {
     text-decoration: none;
-    padding: 1rem 1.2rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem;
     font-family: 'Raleway', sans-serif;
     text-align: left;
     color: #707070;
@@ -60,7 +63,7 @@ h2 {
 
 h3 {
     text-decoration: none;
-    padding: 0rem 3rem;
+    padding: 0rem 2rem;
     font-family: 'Raleway', sans-serif;
     text-align: left;
     color: #707070;
@@ -76,11 +79,9 @@ h4 {
     font-weight: bold;
 }
 
-/* EDITAR H5 Y H6 */
-
 h5 {
     text-decoration: none;
-    padding: 0rem 3rem 0rem;
+    padding: 0rem 2rem 0rem;
     font-family: 'Raleway', sans-serif;
     text-align: left;
     color: #707070;
@@ -99,19 +100,38 @@ h6 {
 p {
     text-decoration: none;
     font-size: 0.8rem;
-    padding: 0rem 3rem;
+    padding: 0rem 2rem;
     font-family: 'Raleway', sans-serif;
     text-align: left;
     color: #707070;
 }
 
 .product_discount {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 2rem 0rem;
+    padding: 0.5rem;
     text-decoration: none;
-    /*padding: 0.5rem 3.8rem 0rem;*/
+    font-family: 'Raleway', sans-serif;
+    color: #60B965;
+    font-weight: bold;
+    border-style: solid;
+    border-width: thin;
+    border color: #60B965;
+}
+
+.product_price {
+    text-decoration: none;
     font-family: 'Raleway', sans-serif;
     text-align: left;
     color: #707070;
     font-weight: bold;
+    padding-top: 1rem;
+}
+
+.product_alcohol {
+    margin: 0;
+    font-style: italic;
 }
 
 
@@ -127,7 +147,6 @@ img {
     padding: 0rem 2rem;
 }
 
-
 .icons {
  position: absolute;
  right: 0;
@@ -136,18 +155,6 @@ img {
  height: auto;
 }
 
-/*.icons {
-    position: relative;
-}*/
-
-/*.vegetarian {
-    position: absolute;
-    top:0;
-    left: 0;
-    max-width: 100%;
-    height: auto;
-    padding: 0;
-}*/
 
 
 /* Navigation bar links styling */
@@ -165,7 +172,6 @@ nav a {
   text-transform: capitalize;
   padding: 25px;
   font-family: 'Raleway', sans-serif;
-  /*font-size: 0.9em;*/
 }
 
 
@@ -190,7 +196,7 @@ nav a:active {
 }
 
 
-/* REVISAR ESTO */
+
 .productlist > section {
   display: grid;
   max-width: 1200px;
@@ -209,8 +215,8 @@ nav a:active {
   flex-direction: column;
   position: relative;
   background-color: #E5E5E5;
-  padding: 2.5em 0em;
-  margin: 1.5em;
+  padding: 2.5rem 0rem;
+  margin: 1.5rem;
 }
 
 .hidden {
@@ -231,26 +237,12 @@ nav a:active {
     font-weight: bold;
 }
 
-/*.allergens {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    color: white;
-    background: yellow;
-    height: 2em;
-    text-align: center;
-    padding: 0.5em;
-    align-content: center;
-    font-weight: bold;
-}*/
 
 button {
   display: flex;
   justify-content: center;
-  margin: 2em 2em 0em;
-  padding: 0.5em;
-  /*font-size: 1em;*/
+  margin: 2rem 2rem 0rem;
+  padding: 1rem;
   background-color: #777777;
   color: #fff;
   font-family: 'Raleway', sans-serif;
@@ -258,22 +250,10 @@ button {
   cursor: pointer;
 }
 
-
-
-/*button.active {
-  background: hotpink;
-  color: white;
+button:hover{
+    transform: scale(1.05);
 }
 
-.productbody button {
-  margin-top: auto;
-  background-color: var(--secondary-light);
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  font-size: 1.3rem;
-  cursor: pointer;
-}*/
 
 
 /* MODAL */
@@ -296,7 +276,6 @@ button {
   position: relative;
   background-color: #fefefe;
   margin: 1rem;
-  /*margin: 1em;*/
   padding: 2rem;
 }
 
@@ -311,7 +290,6 @@ button {
     height: 2.5rem;
     text-align: center;
     padding: .5rem 1.5rem .5rem;
-    /*align-content: center;*/
     font-weight: bold;
 }
 
@@ -322,43 +300,36 @@ button {
     display: flex;
     max-width: 10rem;
     height: auto;
-    /*position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0;
-    display: flex;
-    max-width: 5rem;
-    height: auto;
-    padding: 0;*/
 }
-
-/*.modalveg {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0;
-    display: flex;
-    max-width: 5rem;
-    height: auto;
-    padding: 0;
-}*/
-
-/*
-.icons {
- position: absolute;
- right: 0;
- display: flex;
- max-width: 9rem;
- height: auto;
-}
-*/
 
 
 .modal-image {
     margin: 0;
     display: flex;
     justify-content: center;
-    /*padding: 2.5rem 4rem 2.5rem;*/
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 1rem;
 }
 
+.allergens-title {
+    padding: 1rem 2rem 0rem;
+}
+
+.modal-allergens{
+    text-transform: capitalize;
+}
+
+
+.modal-price {
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+    color: #707070;
+    font-weight: bold;
+    padding-top: 1rem;
+    margin: 0;
+}
+
+.product_alcohol {
+    margin: 0;
+    font-style: italic;
+}

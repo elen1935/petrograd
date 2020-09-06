@@ -94,7 +94,7 @@ function showProduct(myProduct){
         myCopy.querySelector(".vegetarian").classList.remove("hidden");
     }
     if (myProduct.alcohol) {
-        myCopy.querySelector(".product_alcohol").textContent = "Alc. " + myProduct.alcohol + "% Vol";
+        myCopy.querySelector(".product_alcohol").textContent = "(Alc. " + myProduct.alcohol + "% Vol)";
     }
     if (myProduct.soldout) {
         const p = document.createElement("p");
@@ -113,14 +113,11 @@ function showProduct(myProduct){
     }
 
 
-
     //fill in template
     myCopy.querySelector(".product_name").textContent = myProduct.name;
     /*console.log("I am a ", myProduct.category, "I should go to section#" + myProduct.category)*/
 
-    // I ADDED THIS - PRICE FOR EACH PRODUCT
     myCopy.querySelector(".product_price").textContent = myProduct.price + " kr.";
-    // I ADDED THIS - SHORT DESCRIPTION FOR EACH PRODUCT
     myCopy.querySelector(".short_description").textContent = myProduct.shortdescription;
 
 
@@ -153,36 +150,17 @@ function showDetails(data) {
         modal.querySelector(".modalveg").classList.remove("hidden");
   }
 
-    ////////NOT SURE IF I NEED THIS - THERE'S SOME BUG IN THE ACTUAL VEGETARIAN DISHES IF I ADD IT
-    //1. find the article - MODAL
-    /*const div = modal.querySelector("div");
-
-    //2. add classes - MODAL
-    if (data.vegetarian) {
-        div.classList.add("modalveg")
-    }*/
-
-
-    /* myProduct = data
-       myCopy = modal
-    */
-
-
-
   if (data.alcohol){
-        modal.querySelector(".modal-alcohol").textContent = "Alc. " + data.alcohol + "% Vol";
+        modal.querySelector(".modal-alcohol").textContent = "(Alc. " + data.alcohol + "% Vol)";
   }
   if (data.allergens){
         modal.querySelector(".modal-allergens").textContent = data.allergens;
   }
   if (data.soldout) {
-      /* me aparece en todos los productos */
-      /*modal.querySelector(".modal-soldout").classList.remove("hidden");*/
         const p = document.createElement("p");
         p.textContent = "Sold Out";
         p.classList.add("modal-soldout")
         modal.querySelector(".modal-content").appendChild(p)
-        /* modal.querySelector("div").appendChild(p) */
     }
 
   if (data.discount) {
