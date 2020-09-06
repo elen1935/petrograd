@@ -83,7 +83,7 @@ function showProduct(myProduct){
         const discount = myProduct.discount;
         const reduction = price * (discount/100);
 
-        discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
+        discountedPrice.textContent = `${Math.round(price - reduction)} kr.`;
 
         const parentElem = myCopy.querySelector(".prices");
         parentElem.appendChild(discountedPrice);
@@ -102,11 +102,6 @@ function showProduct(myProduct){
         p.classList.add("soldout")
         myCopy.querySelector("article").appendChild(p)
     }
-    // TENGO QUE AÑADIR ALGO DE LOS ALLERGENS AQUI TAMBIEN????
-    /* DOESN'T WORK
-    if (myProduct.allergens){
-        myCopy.querySelector(".allergens").classList.remove("hidden");
-    }*/
 
 
     //1. find the article
@@ -116,11 +111,7 @@ function showProduct(myProduct){
     if (myProduct.vegetarian) {
         article.classList.add("vegetarian")
     }
-    // I ADDED THIS - ALLERGENS FOR EACH PRODUCT
-    /* DOESN'T WORK
-    if (myProduct.allergens) {
-        article.classList.add("allergens")
-    }*/
+
 
 
     //fill in template
@@ -128,12 +119,10 @@ function showProduct(myProduct){
     /*console.log("I am a ", myProduct.category, "I should go to section#" + myProduct.category)*/
 
     // I ADDED THIS - PRICE FOR EACH PRODUCT
-    myCopy.querySelector(".product_price").textContent = myProduct.price + " DKK";
+    myCopy.querySelector(".product_price").textContent = myProduct.price + " kr.";
     // I ADDED THIS - SHORT DESCRIPTION FOR EACH PRODUCT
     myCopy.querySelector(".short_description").textContent = myProduct.shortdescription;
-    // I ADDED THIS - ALLERGENS FOR EACH PRODUCT
-    /* DOESN'T WORK
-    myCopy.querySelector(".allergens").textContent = myProduct.allergens;*/
+
 
 
     myCopy.querySelector("button").addEventListener("click", () => {
@@ -148,37 +137,52 @@ function showProduct(myProduct){
 }
 
 const modal = document.querySelector(".modal-background");
-/*const modalImage = document.querySelector(".modal-background");*/
-/*const modalImage = myCopy.querySelector(".modal-background");*/
 
 //once we have our data, ....
 function showDetails(data) {
 
   modal.querySelector(".modal-name").textContent = data.name;
   modal.querySelector(".modal-description").textContent = data.longdescription;
-  modal.querySelector(".modal-price").textContent = data.price + " DKK";
+  modal.querySelector(".modal-price").textContent = data.price + " kr.";
 
   const img = modal.querySelector(".modal-image");
-  img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${data.image}-md.jpg`)
+  img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/small/${data.image}-sm.jpg`)
 
 
   if (data.vegetarian){
-        modal.querySelector(".modal-veg").classList.remove("hidden");
+        modal.querySelector(".modalveg").classList.remove("hidden");
   }
+
+    ////////NOT SURE IF I NEED THIS - THERE'S SOME BUG IN THE ACTUAL VEGETARIAN DISHES IF I ADD IT
+    //1. find the article - MODAL
+    /*const div = modal.querySelector("div");
+
+    //2. add classes - MODAL
+    if (data.vegetarian) {
+        div.classList.add("modalveg")
+    }*/
+
+
+    /* myProduct = data
+       myCopy = modal
+    */
+
+
+
   if (data.alcohol){
         modal.querySelector(".modal-alcohol").textContent = "Alc. " + data.alcohol + "% Vol";
   }
   if (data.allergens){
         modal.querySelector(".modal-allergens").textContent = data.allergens;
   }
-
   if (data.soldout) {
       /* me aparece en todos los productos */
-      modal.querySelector(".modal-soldout").classList.remove("hidden");
-        /*const p = document.createElement("p");
+      /*modal.querySelector(".modal-soldout").classList.remove("hidden");*/
+        const p = document.createElement("p");
         p.textContent = "Sold Out";
         p.classList.add("modal-soldout")
-        modal.querySelector("div").appendChild(p)*/
+        modal.querySelector(".modal-content").appendChild(p)
+        /* modal.querySelector("div").appendChild(p) */
     }
 
   if (data.discount) {
@@ -191,40 +195,13 @@ function showDetails(data) {
         const discount = data.discount;
         const reduction = price * (discount/100);
 
-        discountedPrice.textContent = `${Math.round(price - reduction)}kr`;
+        discountedPrice.textContent = `${Math.round(price - reduction)} kr.`;
 
         const parentElem = modal.querySelector(".modal-price-calc");
         parentElem.appendChild(discountedPrice);
     }
 
 
-    /*<div class="modal-price-calc">
-        <p class="modal-discount"></p>
-        <p class="modal-price">49 DKK</p>
-    </div>*/
-
-
-    /* myProduct = data
-       myCopy = modal
-    */
-
-
-    /* COPIADO DE ARRIBA
-    if (myProduct.vegetarian){
-        myCopy.querySelector(".vegetarian").classList.remove("hidden");
-    }
-    */
-
-  /*modal.querySelector(".modal-image");
-  img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
-
-  /*modalImage.querySelector(".modal-image").setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
-
-  /*const modalImage = myCopy.querySelector(".modal-image");
-  modalImage.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
-
-  /*const img = myCopy.querySelector(".modal-image");
-  img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);*/
 
   //...
   modal.classList.remove("hide");

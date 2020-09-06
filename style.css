@@ -24,11 +24,11 @@ h1 {
 }
 
 
-h2, h3, h4, h5, h6, .modal-soldout {
+h2, h3, h4, h5, h6, {
     font-size: calc(1rem + 1vw);
 }
 
-p, button {
+p, button, .modal-soldout {
     font-size: calc(1rem + 0.5vw);
 }
 
@@ -123,16 +123,31 @@ img {
     padding: 0rem 2rem;
 }
 
+.product_image {
+    padding: 0rem 2rem;
+}
+
+
 .icons {
  position: absolute;
- /*top: 2.5rem;*/
  right: 0;
  display: flex;
- /*max-width: 40%;*/
  max-width: 9rem;
  height: auto;
 }
 
+/*.icons {
+    position: relative;
+}*/
+
+/*.vegetarian {
+    position: absolute;
+    top:0;
+    left: 0;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+}*/
 
 
 /* Navigation bar links styling */
@@ -196,7 +211,6 @@ nav a:active {
   background-color: #E5E5E5;
   padding: 2.5em 0em;
   margin: 1.5em;
-  position: relative;
 }
 
 .hidden {
@@ -267,6 +281,7 @@ button {
 .hide {
   display: none;
 }
+
 .modal-background {
   position: fixed;
   z-index: 10;
@@ -278,35 +293,55 @@ button {
 }
 
 .modal-content {
+  position: relative;
   background-color: #fefefe;
-  border: 1px solid #7c1f17;
-  margin: 1em;
-  padding: 2em;
+  margin: 1rem;
+  /*margin: 1em;*/
+  padding: 2rem;
 }
-
 
 .modal-soldout {
     position: absolute;
     display: flex;
-    top: 0;
-    right: 0;
-    margin: 0;
+    top: 1rem;
+    left: 0;
+    margin-top: 0;
     color: white;
     background: #FF4747;
-    height: 4rem;
+    height: 2.5rem;
     text-align: center;
-    padding: 1rem 2rem 1rem;
-    align-content: center;
+    padding: .5rem 1.5rem .5rem;
+    /*align-content: center;*/
     font-weight: bold;
 }
 
-.modal-veg {
- position: absolute;
- right: 0;
- display: flex;
- max-width: 10rem;
- height: auto;
+
+.modal-icons {
+    position: absolute;
+    right: 0;
+    display: flex;
+    max-width: 10rem;
+    height: auto;
+    /*position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    display: flex;
+    max-width: 5rem;
+    height: auto;
+    padding: 0;*/
 }
+
+/*.modalveg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    display: flex;
+    max-width: 5rem;
+    height: auto;
+    padding: 0;
+}*/
 
 /*
 .icons {
@@ -315,5 +350,15 @@ button {
  display: flex;
  max-width: 9rem;
  height: auto;
-}*/
+}
+*/
+
+
+.modal-image {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /*padding: 2.5rem 4rem 2.5rem;*/
+    padding: 3rem 2rem;
+}
 
